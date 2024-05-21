@@ -3,8 +3,8 @@ import Aside from "./Aside";
 import Image from "next/image";
 import avtar from "@/public/images/avatar .png";
 import { SiTodoist } from "react-icons/si";
-import Button from "../widgets/Button";
-
+import Button from "../widgets/Tasks";
+import Lists from "../widgets/Lists";
 const Sidebar = () => {
   return (
     <div className="w-[93%] h-[90%] z-30  rounded-2xl bg-white flex items-center ">
@@ -22,12 +22,26 @@ const Sidebar = () => {
         </div>
         <div className="border-2">
           <ul className="border-2 w-[85%] mx-auto flex flex-col gap-3">
-            <li className="flex gap-4 border-2 items-center font-semibold ">
-              <SiTodoist className="text-gray-300" />
-              <span>Today Tasks</span>
+            <li>
+              <Lists
+                text="Today Tasks"
+                icon={<SiTodoist className="text-gray-300" />}
+              />
             </li>
             <li>
               <Button />
+            </li>
+            <li>
+              <Lists
+                text="Schedule Tasks"
+                icon={<SiTodoist className="text-gray-300" />}
+              />
+            </li>
+            <li>
+              <Lists
+                text="Setting"
+                icon={<SiTodoist className="text-gray-300" />}
+              />
             </li>
           </ul>
         </div>

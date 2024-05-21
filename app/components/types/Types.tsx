@@ -4,4 +4,8 @@ export interface TodoContextType {
 }
 export interface ListType {
   text: string;
+  icon: React.ReactNode;
+}
+export interface ButtonType {
+  text: string;
 }
