@@ -1,11 +1,28 @@
-import React from "react";
+"use client";
+import React, { useContext, useState } from "react";
 import Button from "../widgets/Button";
+import { TodoContextType } from "../types/Types";
+import { TodoContext } from "../contextApi/ContextApi";
 const Search = () => {
+  const [todo, setTodo] = useState("");
+  const [todoDes, setTodoDes] = useState("");
+
+  const todoContext = useContext(TodoContext) as TodoContextType;
+  const addTodo = todoContext?.addTodo;
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log("clicked");
+
+    addTodo(todo, todoDes);
+  };
   return (
-    <div className="h-full w-full hidden">
+    <div className="h-full w-full ">
       {" "}
       <div className="flex items-center h-full">
-        <div className=" h-[60%] w-1/2 mx-auto rounded-md gap-10 p-4 bg-white flex flex-col justify-center ">
+        <form
+          className=" h-[60%] w-1/2 mx-auto rounded-md gap-10 p-4 bg-white flex flex-col justify-center "
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             className=" border-2 outline-none p-2 placeholder:text-sm capitalize"
@@ -18,8 +35,13 @@ const Search = () => {
             rows={5}
             placeholder="Write description"
           ></textarea>
-          <Button text="Add Item" tailwindClasses="bg-blue-300" />
-        </div>
+
+          <Button
+            text="Add Item"
+            tailwindClasses="bg-blue-300"
+            clickButton={handleSubmit}
+          />
+        </form>
       </div>
     </div>
   );
