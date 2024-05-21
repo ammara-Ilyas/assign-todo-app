@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface TodoContextType {
   todoList: String[];
   //   addTodo: (todo: string) => void;
@@ -7,5 +9,6 @@ export interface ListType {
   icon: React.ReactNode;
 }
 export interface ButtonType {
-  text: string;
+  text: string | React.ReactNode;
+  tailwindClasses?: string;
 }

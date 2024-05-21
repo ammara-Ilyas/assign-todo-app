@@ -8,17 +8,17 @@ const Search = () => {
         <div className=" h-[60%] w-1/2 mx-auto rounded-md gap-10 p-4 bg-white flex flex-col justify-center ">
           <input
             type="text"
-            className=" border-2 outline-none p-2 placeholder:text-sm"
+            className=" border-2 outline-none p-2 placeholder:text-sm capitalize"
             placeholder="Write todo"
           />
           <textarea
-            name="s"
+            name=""
             id=""
             className="border-2 outline-none p-2 placeholder:text-sm"
             rows={5}
             placeholder="Write description"
           ></textarea>
-          <Button text="Add Item" />
+          <Button text="Add Item" tailwindClasses="bg-blue-300" />
         </div>
       </div>
     </div>
