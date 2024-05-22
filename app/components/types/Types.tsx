@@ -21,6 +21,7 @@ export interface TodoContextType {
   todoDes: string;
   setTodoDes: React.Dispatch<React.SetStateAction<string>>;
   todoList: Todo[];
+  todoData: Todo[];
   addTodo: () => void;
   deleteTodo: (id: number) => void;
   editTodo: (id: number) => void;

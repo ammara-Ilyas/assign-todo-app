@@ -24,6 +24,8 @@ const TodoProvider = ({
       isImportant: false,
     },
   ]);
+  const [todoData, setTodoData] = useState<Todo[]>([]);
+
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [isEdit, setIsEdit] = useState<Boolean>(false);
   const [editTodoId, setEditTodoId] = useState<number>(0);
@@ -36,6 +38,7 @@ const TodoProvider = ({
         isImportant: false,
       };
       todoList.push(newTodo);
+      setTodoData([...todoList]);
       console.log(todoList);
     } else {
       alert("write todo");
@@ -52,6 +55,7 @@ const TodoProvider = ({
     console.log("update", updatedTodos);
 
     setTodoList(updatedTodos);
+    setTodoData(updatedTodos);
   };
   const editTodo = (id: number) => {
     const item = todoList.find((item) => {
@@ -65,10 +69,6 @@ const TodoProvider = ({
       setIsEdit(true);
       setEditTodoId(id);
       console.log("idedit", editTodoId);
-
-      // setToggle(false);
-      // setEditTodo(id);
-      // setEditPlaceholder(false);
     }
   };
   const saveTodo = () => {
@@ -79,6 +79,7 @@ const TodoProvider = ({
     updatedTodos[index].todo = todo;
     updatedTodos[index].todoDes = todoDes;
     setTodoList(updatedTodos);
+    setTodoData(updatedTodos);
   };
   const handleCheckbox = (id: number) => {
     const index = todoList.findIndex((item) => item.id === id);
@@ -90,6 +91,7 @@ const TodoProvider = ({
     console.log("update", updatedTodoList);
 
     setTodoList(updatedTodoList);
+    setTodoData(updatedTodoList);
   };
   return (
     <TodoContext.Provider
@@ -109,6 +111,7 @@ const TodoProvider = ({
         setIsEdit,
         saveTodo,
         handleCheckbox,
+        todoData,
       }}
     >
       {children}
