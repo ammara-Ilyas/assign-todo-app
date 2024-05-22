@@ -18,7 +18,7 @@ const SearchFilter = () => {
       />
       <Button
         text="Add new Item"
-        tailwindClasses="bg-white"
+        tailwindClasses="bg-white rounded-md"
         clickButton={handleFormOpen}
       />
     </div>

@@ -7,10 +7,7 @@ const Button: React.FC<ButtonType> = ({
   clickButton,
 }) => {
   return (
-    <button
-      className={`${tailwindClasses} p-2 rounded-md`}
-      onClick={clickButton}
-    >
+    <button className={`${tailwindClasses} p-2 `} onClick={clickButton}>
       {text}
     </button>
   );

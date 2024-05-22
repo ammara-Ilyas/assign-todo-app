@@ -69,7 +69,7 @@ const Search = () => {
           ) : (
             <Button
               text="Add new"
-              tailwindClasses="bg-blue-500"
+              tailwindClasses="bg-blue-500 "
               clickButton={handleSubmit}
             />
           )}
