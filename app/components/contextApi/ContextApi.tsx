@@ -1,27 +1,26 @@
 "use client";
 import React, { createContext, useState } from "react";
 import { TodoContextType, Todo } from "../types/Types";
-export let TodoContext = createContext<TodoContextType | undefined | void>(
+export const TodoContext = React.createContext<TodoContextType | undefined>(
   undefined
 );
 
 const TodoProvider = ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
-  const [todo, setTodo] = useState<string>("");
-  const [todoDes, setTodoDes] = useState<string>("");
   const [todoList, setTodoList] = useState<Todo[]>([]);
   const addTodo = (todo: string, todoDes: string) => {
     if (todo.trim() !== "" || todoDes.trim() !== "") {
-      setTodoList([
-        ...todoList,
-        {
-          id: Math.floor(Math.random() * 1000000),
-          todo,
-          todoDes,
-          isImportant: false,
-        },
-      ]);
+      const newTodo = {
+        id: Math.floor(Math.random() * 1000000),
+        todo,
+        todoDes,
+        isImportant: false,
+      };
+      todoList.push(newTodo);
+      // setTodoList([...todoList, newTodo]);
+      console.log(todoList);
+
       // setIsEmpty(false);
     } else {
       // setIsEmpty(true);

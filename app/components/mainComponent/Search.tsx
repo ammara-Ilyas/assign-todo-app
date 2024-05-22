@@ -11,6 +11,9 @@ const Search = () => {
   const addTodo = todoContext?.addTodo;
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    console.log("todo", todo);
+    console.log("destodo", todoDes);
+
     console.log("clicked");
 
     addTodo(todo, todoDes);
@@ -27,6 +30,8 @@ const Search = () => {
             type="text"
             className=" border-2 outline-none p-2 placeholder:text-sm capitalize"
             placeholder="Write todo"
+            value={todo}
+            onChange={(e) => setTodo(e.target.value)}
           />
           <textarea
             name=""
@@ -34,6 +39,8 @@ const Search = () => {
             className="border-2 outline-none p-2 placeholder:text-sm"
             rows={5}
             placeholder="Write description"
+            value={todoDes}
+            onChange={(e) => setTodoDes(e.target.value)}
           ></textarea>
 
           <Button
