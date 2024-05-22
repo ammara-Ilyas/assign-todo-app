@@ -80,6 +80,17 @@ const TodoProvider = ({
     updatedTodos[index].todoDes = todoDes;
     setTodoList(updatedTodos);
   };
+  const handleCheckbox = (id: number) => {
+    const index = todoList.findIndex((item) => item.id === id);
+    const updatedTodoList = [...todoList];
+    updatedTodoList[index] = {
+      ...updatedTodoList[index],
+      isImportant: !updatedTodoList[index].isImportant,
+    };
+    console.log("update", updatedTodoList);
+
+    setTodoList(updatedTodoList);
+  };
   return (
     <TodoContext.Provider
       value={{
@@ -97,6 +108,7 @@ const TodoProvider = ({
         isEdit,
         setIsEdit,
         saveTodo,
+        handleCheckbox,
       }}
     >
       {children}

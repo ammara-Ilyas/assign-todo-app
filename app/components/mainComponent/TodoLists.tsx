@@ -16,7 +16,8 @@ const TodoLists: React.FC = () => {
     throw new Error("TodoLists must be used within a TodoContext.Provider");
   }
 
-  const { todoList, deleteTodo, editTodo, setIsOpen } = todoContext;
+  const { todoList, deleteTodo, editTodo, setIsOpen, handleCheckbox } =
+    todoContext;
   const handleDeleteTodo = (id: number) => {
     console.log(id);
     deleteTodo(id);
@@ -29,6 +30,11 @@ const TodoLists: React.FC = () => {
   const handleDesToggle = (id: number) => {
     setOpenTodoId((prevId) => (prevId === id ? null : id));
   };
+  const handleCheckboxChange = (id: number) => {
+    console.log(id);
+
+    handleCheckbox(id);
+  };
   return (
     <div className=" w-[60%] mx-auto overflow-y-auto h-[70%] p-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white scrollbar-corner-rounded-full	scrollbar-corner-blue-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
       {todoList.map((item, i) => (
@@ -36,7 +42,10 @@ const TodoLists: React.FC = () => {
           <div className=" bg-white w-[95%] flex items-center justify-between  py-2 text-xl px-3 h-[35px] rounded-md">
             <div className="flex items-center justify-center gap-2 ">
               {" "}
-              <Checkbox />
+              <Checkbox
+                important={item.isImportant}
+                onChangeHandler={() => handleCheckboxChange(item.id)}
+              />
               <p className="text-xl">{item.todo}</p>
             </div>
             <div className="flex items-center justify-center gap-3  h-full text-white">

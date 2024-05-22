@@ -30,4 +30,5 @@ export interface TodoContextType {
   setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
   isEdit: Boolean;
   setIsEdit: React.Dispatch<React.SetStateAction<Boolean>>;
+  handleCheckbox: (id: number) => void;
 }
