@@ -4,7 +4,7 @@ import Checkbox from "../widgets/Checkbox";
 import Button from "../widgets/Button";
 import { TodoContext } from "../contextApi/ContextApi";
 ////////import icons////////////////////////
-import { FaEdit } from "react-icons/fa";
+import { MdEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 const TodoLists: React.FC = () => {
@@ -26,11 +26,11 @@ const TodoLists: React.FC = () => {
   };
 
   return (
-    <div className=" w-[60%] mx-auto overflow-y-scroll h-[70%]">
+    <div className=" w-[60%] mx-auto overflow-y-auto h-[70%] p-4 scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-white scrollbar-corner-rounded-full	scrollbar-corner-red-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full border-2 border-blue-500 ">
       {todoList.map((item, i) => (
         <div
           key={item.id}
-          className="border-2 w-full my-2 bg-white  flex items-center justify-between  py-2 text-xl px-3 h-[45px]"
+          className="border-2 w-full my-3 bg-white  flex items-center justify-between  py-2 text-xl px-3 h-[45px]"
         >
           <div className="flex items-center justify-center gap-2 ">
             {" "}
@@ -39,11 +39,13 @@ const TodoLists: React.FC = () => {
           </div>
           <div className="flex items-center justify-center gap-4 h-full text-white">
             <Button
-              text={<FaEdit className="hover:text-slate-200" />}
+              text={<MdEditNote className="hover:text-slate-200 text-sm" />}
+              tailwindClasses="bg-blue-500 p-1"
               clickButton={() => handleEditTodo(item.id)}
             />
             <Button
-              text={<MdDelete className="hover:text-slate-200" />}
+              text={<MdDelete className="hover:text-slate-200   text-sm" />}
+              tailwindClasses="bg-blue-500 p-1"
               clickButton={() => handleDeleteTodo(item.id)}
             />
           </div>

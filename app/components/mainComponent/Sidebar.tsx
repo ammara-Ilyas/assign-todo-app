@@ -8,7 +8,7 @@ import Lists from "../widgets/Lists";
 const Sidebar = () => {
   return (
     <div className="w-[93%] h-[90%] z-30  rounded-2xl bg-white flex items-center ">
-      <div className="flex  gap-10 h-full w-[25%]  flex-col ">
+      <div className="flex  gap-10 h-full w-[25%] mt-10  flex-col ">
         <div className=" border-b-blue-300 border-b-[3px] w-[70%]  h-[20%] mx-auto flex justify-center gap-3 items-center">
           <Image
             src={avtar}

@@ -33,7 +33,11 @@ const Search = () => {
     setIsEdit(false);
   };
   return (
-    <div className={`h-full w-full ${isOpen ? "block" : "hidden"}`}>
+    <div
+      className={`h-full w-full  bg-black absolute top-0 right-0 border-2 bg-opacity-40 ${
+        isOpen ? "block" : "hidden"
+      }`}
+    >
       {" "}
       <div className="flex items-center h-full">
         <form
@@ -59,13 +63,13 @@ const Search = () => {
           {isEdit ? (
             <Button
               text="Edit todo"
-              tailwindClasses="bg-blue-300"
+              tailwindClasses="bg-blue-500"
               clickButton={handleSave}
             />
           ) : (
             <Button
               text="Add new"
-              tailwindClasses="bg-blue-300"
+              tailwindClasses="bg-blue-500"
               clickButton={handleSubmit}
             />
           )}

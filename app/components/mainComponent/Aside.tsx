@@ -4,7 +4,7 @@ import Lists from "./TodoLists";
 import SearchFilter from "./SearchFilter";
 const Aside = () => {
   return (
-    <div className="w-3/4 h-[98%] bg-blue-500 rounded-2xl ml-auto mr-[6px]">
+    <div className="w-3/4 h-[99%] relative bg-blue-500 rounded-2xl ml-auto mr-[3px]">
       <Search />
       <SearchFilter />
       <Lists />
