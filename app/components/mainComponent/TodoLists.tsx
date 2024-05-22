@@ -14,12 +14,16 @@ const TodoLists: React.FC = () => {
     throw new Error("TodoLists must be used within a TodoContext.Provider");
   }
 
-  const { todoList, deleteTodo } = todoContext;
-  const handleDeleteTodo = (id: Number) => {
+  const { todoList, deleteTodo, editTodo, setIsOpen } = todoContext;
+  const handleDeleteTodo = (id: number) => {
     console.log(id);
     deleteTodo(id);
   };
-  const handleEditTodo = (id: Number) => {};
+  const handleEditTodo = (id: number) => {
+    console.log(id);
+    editTodo(id);
+    setIsOpen(true);
+  };
 
   return (
     <div className=" w-[60%] mx-auto overflow-y-scroll h-[70%]">

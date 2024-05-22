@@ -16,11 +16,18 @@ export interface Todo {
   isImportant: boolean;
 }
 export interface TodoContextType {
+  todo: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
+  todoDes: string;
+  setTodoDes: React.Dispatch<React.SetStateAction<string>>;
   todoList: Todo[];
-  addTodo: (todo: string, todoDes: string) => void;
-  deleteTodo: (id: Number) => void;
-  editTodo: (id: Number) => void;
+  addTodo: () => void;
+  deleteTodo: (id: number) => void;
+  editTodo: (id: number) => void;
+  saveTodo: () => void;
   setTodoList: React.Dispatch<React.SetStateAction<Todo[]>>;
   isOpen: Boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
+  isEdit: Boolean;
+  setIsEdit: React.Dispatch<React.SetStateAction<Boolean>>;
 }

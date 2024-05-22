@@ -8,14 +8,18 @@ export const TodoContext = React.createContext<TodoContextType | undefined>(
 const TodoProvider = ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
+  const [todo, setTodo] = useState<string>("");
+  const [todoDes, setTodoDes] = useState<string>("");
   const [todoList, setTodoList] = useState<Todo[]>([]);
   const [isOpen, setIsOpen] = useState<Boolean>(false);
-  const addTodo = (todo: string, todoDes: string) => {
+  const [isEdit, setIsEdit] = useState<Boolean>(false);
+  const [editTodoId, setEditTodoId] = useState<number>(0);
+  const addTodo = () => {
     if (todo.trim() !== "" || todoDes.trim() !== "") {
-      const newTodo = {
+      const newTodo: Todo = {
         id: Math.floor(Math.random() * 1000000),
-        todo,
-        todoDes,
+        todo: todo,
+        todoDes: todoDes,
         isImportant: false,
       };
       todoList.push(newTodo);
@@ -30,7 +34,7 @@ const TodoProvider = ({
       // }, 2000);
     }
   };
-  const deleteTodo = (id: Number) => {
+  const deleteTodo = (id: number) => {
     const updatedTodos = todoList.filter((item) => {
       return item.id !== id;
     });
@@ -38,14 +42,32 @@ const TodoProvider = ({
 
     setTodoList(updatedTodos);
   };
-  const editTodo = (id: Number) => {
+  const editTodo = (id: number) => {
     const item = todoList.find((item) => {
       return item.id === id;
     });
-    // setTodo(item.name);
-    // setToggle(false);
-    // setEditTodo(id);
-    // setEditPlaceholder(false);
+    console.log("item", item);
+
+    if (item) {
+      setTodo(item.todo);
+      setTodoDes(item.todoDes);
+      setIsEdit(true);
+      setEditTodoId(id);
+      console.log("idedit", editTodoId);
+
+      // setToggle(false);
+      // setEditTodo(id);
+      // setEditPlaceholder(false);
+    }
+  };
+  const saveTodo = () => {
+    const index = todoList.findIndex((item) => {
+      return item.id === editTodoId;
+    });
+    let updatedTodos = [...todoList];
+    updatedTodos[index].todo = todo;
+    updatedTodos[index].todoDes = todoDes;
+    setTodoList(updatedTodos);
   };
   return (
     <TodoContext.Provider
@@ -57,6 +79,13 @@ const TodoProvider = ({
         setIsOpen,
         deleteTodo,
         editTodo,
+        todo,
+        setTodo,
+        todoDes,
+        setTodoDes,
+        isEdit,
+        setIsEdit,
+        saveTodo,
       }}
     >
       {children}

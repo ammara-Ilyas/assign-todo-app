@@ -4,19 +4,33 @@ import Button from "../widgets/Button";
 import { TodoContextType } from "../types/Types";
 import { TodoContext } from "../contextApi/ContextApi";
 const Search = () => {
-  const [todo, setTodo] = useState("");
-  const [todoDes, setTodoDes] = useState("");
-
-  const { addTodo, isOpen, setIsOpen } = useContext(
-    TodoContext
-  ) as TodoContextType;
+  const {
+    addTodo,
+    isOpen,
+    setIsOpen,
+    todo,
+    todoDes,
+    setTodo,
+    setTodoDes,
+    isEdit,
+    setIsEdit,
+    saveTodo,
+  } = useContext(TodoContext) as TodoContextType;
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("todo", todo);
     console.log("destodo", todoDes);
-
-    addTodo(todo, todoDes);
+    addTodo();
     setIsOpen(false);
+    setTodo("");
+    setTodoDes("");
+  };
+  const handleSave = () => {
+    saveTodo();
+    setTodo("");
+    setTodoDes("");
+    setIsOpen(false);
+    setIsEdit(false);
   };
   return (
     <div className={`h-full w-full ${isOpen ? "block" : "hidden"}`}>
@@ -42,12 +56,19 @@ const Search = () => {
             value={todoDes}
             onChange={(e) => setTodoDes(e.target.value)}
           ></textarea>
-
-          <Button
-            text="Add Item"
-            tailwindClasses="bg-blue-300"
-            clickButton={handleSubmit}
-          />
+          {isEdit ? (
+            <Button
+              text="Edit todo"
+              tailwindClasses="bg-blue-300"
+              clickButton={handleSave}
+            />
+          ) : (
+            <Button
+              text="Add new"
+              tailwindClasses="bg-blue-300"
+              clickButton={handleSubmit}
+            />
+          )}
         </form>
       </div>
     </div>
