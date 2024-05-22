@@ -3,8 +3,7 @@ import React, { useContext } from "react";
 import Checkbox from "../widgets/Checkbox";
 import Button from "../widgets/Button";
 import { TodoContext } from "../contextApi/ContextApi";
-import { Todo, TodoContextType } from "../types/Types";
-////////import icons
+////////import icons////////////////////////
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
@@ -15,7 +14,12 @@ const TodoLists: React.FC = () => {
     throw new Error("TodoLists must be used within a TodoContext.Provider");
   }
 
-  const { todoList } = todoContext;
+  const { todoList, deleteTodo } = todoContext;
+  const handleDeleteTodo = (id: Number) => {
+    console.log(id);
+    deleteTodo(id);
+  };
+  const handleEditTodo = (id: Number) => {};
 
   return (
     <div className=" w-[60%] mx-auto overflow-y-scroll h-[70%]">
@@ -30,8 +34,14 @@ const TodoLists: React.FC = () => {
             <p className="text-xl">{item.todo}</p>
           </div>
           <div className="flex items-center justify-center gap-4 h-full text-white">
-            <Button text={<FaEdit className="hover:text-slate-200" />} />
-            <Button text={<MdDelete className="hover:text-slate-200" />} />
+            <Button
+              text={<FaEdit className="hover:text-slate-200" />}
+              clickButton={() => handleEditTodo(item.id)}
+            />
+            <Button
+              text={<MdDelete className="hover:text-slate-200" />}
+              clickButton={() => handleDeleteTodo(item.id)}
+            />
           </div>
         </div>
       ))}

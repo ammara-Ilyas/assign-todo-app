@@ -30,7 +30,23 @@ const TodoProvider = ({
       // }, 2000);
     }
   };
+  const deleteTodo = (id: Number) => {
+    const updatedTodos = todoList.filter((item) => {
+      return item.id !== id;
+    });
+    console.log("update", updatedTodos);
 
+    setTodoList(updatedTodos);
+  };
+  const editTodo = (id: Number) => {
+    const item = todoList.find((item) => {
+      return item.id === id;
+    });
+    // setTodo(item.name);
+    // setToggle(false);
+    // setEditTodo(id);
+    // setEditPlaceholder(false);
+  };
   return (
     <TodoContext.Provider
       value={{
@@ -39,6 +55,8 @@ const TodoProvider = ({
         addTodo,
         isOpen,
         setIsOpen,
+        deleteTodo,
+        editTodo,
       }}
     >
       {children}

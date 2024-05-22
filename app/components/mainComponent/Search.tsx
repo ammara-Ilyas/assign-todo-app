@@ -10,7 +10,6 @@ const Search = () => {
   const { addTodo, isOpen, setIsOpen } = useContext(
     TodoContext
   ) as TodoContextType;
-  // const addTodo = todoContext?.addTodo;
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("todo", todo);
