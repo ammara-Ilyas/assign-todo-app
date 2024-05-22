@@ -40,6 +40,7 @@ const TodoProvider = ({
       todoList.push(newTodo);
       setTodoData([...todoList]);
       console.log(todoList);
+      setIsOpen(false);
     } else {
       alert("write todo");
       // setIsEmpty(true);

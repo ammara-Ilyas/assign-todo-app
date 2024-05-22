@@ -21,7 +21,6 @@ const Search = () => {
     console.log("todo", todo);
     console.log("destodo", todoDes);
     addTodo();
-    setIsOpen(false);
     setTodo("");
     setTodoDes("");
   };
