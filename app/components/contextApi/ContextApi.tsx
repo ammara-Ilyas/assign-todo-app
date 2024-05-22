@@ -9,6 +9,7 @@ const TodoProvider = ({
   children,
 }: Readonly<{ children: React.ReactNode }>) => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
   const addTodo = (todo: string, todoDes: string) => {
     if (todo.trim() !== "" || todoDes.trim() !== "") {
       const newTodo = {
@@ -36,6 +37,8 @@ const TodoProvider = ({
         todoList,
         setTodoList,
         addTodo,
+        isOpen,
+        setIsOpen,
       }}
     >
       {children}

@@ -7,19 +7,20 @@ const Search = () => {
   const [todo, setTodo] = useState("");
   const [todoDes, setTodoDes] = useState("");
 
-  const todoContext = useContext(TodoContext) as TodoContextType;
-  const addTodo = todoContext?.addTodo;
+  const { addTodo, isOpen, setIsOpen } = useContext(
+    TodoContext
+  ) as TodoContextType;
+  // const addTodo = todoContext?.addTodo;
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("todo", todo);
     console.log("destodo", todoDes);
 
-    console.log("clicked");
-
     addTodo(todo, todoDes);
+    setIsOpen(false);
   };
   return (
-    <div className="h-full w-full ">
+    <div className={`h-full w-full ${isOpen ? "block" : "hidden"}`}>
       {" "}
       <div className="flex items-center h-full">
         <form

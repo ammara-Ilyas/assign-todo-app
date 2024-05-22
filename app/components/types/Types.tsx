@@ -19,4 +19,6 @@ export interface TodoContextType {
   todoList: Todo[];
   addTodo: (todo: string, todoDes: string) => void;
   setTodoList: React.Dispatch<React.SetStateAction<Todo[]>>;
+  isOpen: Boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<Boolean>>;
 }
