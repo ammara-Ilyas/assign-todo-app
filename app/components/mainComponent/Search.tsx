@@ -47,7 +47,7 @@ const Search = () => {
           <input
             type="text"
             className=" border-2 outline-none p-2 placeholder:text-sm capitalize"
-            placeholder="Write todo"
+            placeholder={`${isEdit ? "Update Todo..." : "Write Todo..."}  `}
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
           />
@@ -56,13 +56,15 @@ const Search = () => {
             id=""
             className="border-2 outline-none p-2 placeholder:text-sm"
             rows={5}
-            placeholder="Write description"
+            placeholder={`${
+              isEdit ? "Update description..." : "Write description...."
+            }  `}
             value={todoDes}
             onChange={(e) => setTodoDes(e.target.value)}
           ></textarea>
           {isEdit ? (
             <Button
-              text="Edit todo"
+              text="Save todo"
               tailwindClasses="bg-blue-500"
               clickButton={handleSave}
             />

@@ -9,7 +9,7 @@ import { MdDelete } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa6";
 
 const TodoLists: React.FC = () => {
-  const [isOpenDes, setIsOpenDes] = useState<boolean>(false);
+  const [openTodoId, setOpenTodoId] = useState<number | null>(null);
   const todoContext = useContext(TodoContext);
 
   if (!todoContext) {
@@ -26,14 +26,14 @@ const TodoLists: React.FC = () => {
     editTodo(id);
     setIsOpen(true);
   };
-  const handleDes = (id: number) => {
-    setIsOpenDes((pre) => !pre);
+  const handleDesToggle = (id: number) => {
+    setOpenTodoId((prevId) => (prevId === id ? null : id));
   };
   return (
-    <div className=" w-[60%] mx-auto overflow-y-auto h-[70%] p-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white scrollbar-corner-rounded-full	scrollbar-corner-blue-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full border-2 border-blue-500 ">
+    <div className=" w-[60%] mx-auto overflow-y-auto h-[70%] p-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white scrollbar-corner-rounded-full	scrollbar-corner-blue-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
       {todoList.map((item, i) => (
-        <div key={item.id} className="flex flex-col border-2 w-full my-3">
-          <div className=" bg-white w-[95%] flex items-center justify-between  py-2 text-xl px-3 h-[35px] rounded-full">
+        <div key={item.id} className="flex flex-col  w-full my-3">
+          <div className=" bg-white w-[95%] flex items-center justify-between  py-2 text-xl px-3 h-[35px] rounded-md">
             <div className="flex items-center justify-center gap-2 ">
               {" "}
               <Checkbox />
@@ -55,13 +55,14 @@ const TodoLists: React.FC = () => {
                   <FaAngleDown className="hover:text-slate-200   text-sm" />
                 }
                 tailwindClasses="bg-blue-500 p-[4px] rounded-full"
-                clickButton={() => handleDes(i)}
+                clickButton={() => handleDesToggle(item.id)}
               />
             </div>
           </div>
           <div
-            className={`border-2 min-h-20 bg-white py-2 px-3 w-[95%] ml-auto
-           ${!isOpenDes ? "hidden" : "block"}`}
+            className={` min-h-20 bg-white py-2 px-3 w-[95%] rounded-md ml-auto  mt-2 ${
+              openTodoId === item.id ? "block" : "hidden"
+            }`}
           >
             <p>{item.todoDes}</p>
           </div>

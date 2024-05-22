@@ -6,13 +6,16 @@ const Button = () => {
     <div>
       <ul className="border-2 w-[75%] ml-auto flex flex-col gap-2">
         <li className="flex items-center gap-1">
-          <Checkbox /> All Tasks
+          <span className="w-[15px] h-[15px] rounded-full bg-blue-400 hover:bg-purple-500 active:bg-purple-500 "></span>
+          All Tasks
         </li>
         <li className="flex items-center gap-1">
-          <Checkbox /> Important{" "}
+          <span className="w-[15px] h-[15px] rounded-full bg-blue-400 hover:bg-purple-500 active:bg-purple-500 "></span>
+          Important{" "}
         </li>
         <li className="flex items-center gap-1">
-          <Checkbox /> Unimportant{" "}
+          <span className="w-[15px] h-[15px] rounded-full bg-blue-400 hover:bg-purple-500 active:bg-purple-500 "></span>
+          Unimportant{" "}
         </li>
       </ul>
     </div>

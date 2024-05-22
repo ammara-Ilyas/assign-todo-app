@@ -10,12 +10,25 @@ const TodoProvider = ({
 }: Readonly<{ children: React.ReactNode }>) => {
   const [todo, setTodo] = useState<string>("");
   const [todoDes, setTodoDes] = useState<string>("");
-  const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [todoList, setTodoList] = useState<Todo[]>([
+    {
+      id: Math.floor(Math.random() * 1000000),
+      todo: "First todo",
+      todoDes: "Todo description",
+      isImportant: false,
+    },
+    {
+      id: Math.floor(Math.random() * 1000000),
+      todo: "First todo",
+      todoDes: "Todo description",
+      isImportant: false,
+    },
+  ]);
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const [isEdit, setIsEdit] = useState<Boolean>(false);
   const [editTodoId, setEditTodoId] = useState<number>(0);
   const addTodo = () => {
-    if (todo.trim() !== "" || todoDes.trim() !== "") {
+    if (todo.trim() !== "" && todoDes.trim() !== "") {
       const newTodo: Todo = {
         id: Math.floor(Math.random() * 1000000),
         todo: todo,
@@ -23,11 +36,9 @@ const TodoProvider = ({
         isImportant: false,
       };
       todoList.push(newTodo);
-      // setTodoList([...todoList, newTodo]);
       console.log(todoList);
-
-      // setIsEmpty(false);
     } else {
+      alert("write todo");
       // setIsEmpty(true);
       // setTimeout(() => {
       //   setIsEmpty(false);
