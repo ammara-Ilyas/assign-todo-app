@@ -39,7 +39,7 @@ const TodoLists: React.FC = () => {
     <div className=" w-[60%] mx-auto overflow-y-auto h-[70%] p-4 scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-white scrollbar-corner-rounded-full	scrollbar-corner-blue-500 scrollbar-thumb-rounded-full scrollbar-track-rounded-full ">
       {todoList.map((item, i) => (
         <div key={item.id} className="flex flex-col  w-full my-3">
-          <div className=" bg-white w-[95%] flex items-center justify-between  py-2 text-xl px-3 h-[35px] rounded-md">
+          <div className=" bg-white w-[95%] flex items-center justify-between  text-xl p-3 h-[45px] rounded-md">
             <div className="flex items-center justify-center gap-2 ">
               {" "}
               <Checkbox
@@ -73,7 +73,8 @@ const TodoLists: React.FC = () => {
               openTodoId === item.id ? "block" : "hidden"
             }`}
           >
-            <p>{item.todoDes}</p>
+            <h6 className="font-bold">Description</h6>
+            <p className="h-20 overflow-auto">{item.todoDes} </p>
           </div>
         </div>
       ))}

@@ -1,6 +1,8 @@
 "use client";
 import React, { createContext, useState } from "react";
 import { TodoContextType, Todo } from "../types/Types";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const TodoContext = React.createContext<TodoContextType | undefined>(
   undefined
 );
@@ -19,7 +21,7 @@ const TodoProvider = ({
     },
     {
       id: Math.floor(Math.random() * 1000000),
-      todo: "First todo",
+      todo: "Second todo",
       todoDes: "Todo description",
       isImportant: false,
     },
@@ -42,11 +44,7 @@ const TodoProvider = ({
       console.log(todoList);
       setIsOpen(false);
     } else {
-      alert("write todo");
-      // setIsEmpty(true);
-      // setTimeout(() => {
-      //   setIsEmpty(false);
-      // }, 2000);
+      toast("Write Todo");
     }
   };
   const deleteTodo = (id: number) => {
@@ -116,6 +114,7 @@ const TodoProvider = ({
       }}
     >
       {children}
+      <ToastContainer theme="light" position="top-center" />
     </TodoContext.Provider>
   );
 };

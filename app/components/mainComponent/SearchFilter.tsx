@@ -11,11 +11,9 @@ const SearchFilter = () => {
   };
   return (
     <div className="h-1/4 flex items-center justify-between mx-10">
-      <input
-        type="text"
-        placeholder="Search Todo"
-        className="w-3/4 p-2 rounded-md outline-none"
-      />
+      <h2 className="text-4xl border-b-2 ml-20 border-b-white pb-1 text-white font-bold">
+        Todo List
+      </h2>
       <Button
         text="Add new Item"
         tailwindClasses="bg-white rounded-md"

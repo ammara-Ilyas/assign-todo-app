@@ -3,6 +3,8 @@ import Aside from "./Aside";
 import Image from "next/image";
 import avtar from "@/public/images/avatar .png";
 import { SiTodoist } from "react-icons/si";
+import { IoSettingsSharp } from "react-icons/io5";
+import { GrSchedulePlay } from "react-icons/gr";
 import Button from "../widgets/Tasks";
 import Lists from "../widgets/Lists";
 const Sidebar = () => {
@@ -20,34 +22,19 @@ const Sidebar = () => {
             <p className="text-purple-600">Ammara Ilyas</p>
           </div>
         </div>
-        <div className="border-2">
-          <ul className="border-2 w-[85%] mx-auto flex flex-col gap-3">
+        <div className="">
+          <ul className=" w-[85%] mx-auto flex flex-col gap-3">
             <li>
-              <Lists
-                text="Today Tasks"
-                icon={
-                  <SiTodoist className="text-gray-400 hover:text-blue-500" />
-                }
-              />
+              <Lists text="Today Tasks" icon={<SiTodoist />} />
             </li>
             <li>
               <Button />
             </li>
             <li>
-              <Lists
-                text="Schedule Tasks"
-                icon={
-                  <SiTodoist className="text-gray-400 hover:text-blue-500" />
-                }
-              />
+              <Lists text="Schedule Tasks" icon={<GrSchedulePlay />} />
             </li>
             <li>
-              <Lists
-                text="Setting"
-                icon={
-                  <SiTodoist className="text-gray-400 hover:text-blue-500" />
-                }
-              />
+              <Lists text="Setting" icon={<IoSettingsSharp />} />
             </li>
           </ul>
         </div>

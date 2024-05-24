@@ -37,7 +37,7 @@ const Button = () => {
 
   return (
     <div>
-      <ul className="border-2 w-[75%] ml-auto flex flex-col gap-2">
+      <ul className=" w-[75%] ml-auto flex flex-col gap-2">
         <li
           className="flex items-center gap-2  cursor-pointer"
           onClick={handleAll}
