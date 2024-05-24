@@ -10,8 +10,8 @@ const SearchFilter = () => {
     setIsOpen(true);
   };
   return (
-    <div className="h-1/4 flex items-center justify-between mx-10">
-      <h2 className="text-4xl border-b-2 ml-20 border-b-white pb-1 text-white font-bold">
+    <div className="h-[15%] md:h-1/4 flex items-center justify-between mx-2 sm:mx-10 ">
+      <h2 className="text-3xl md:text-4xl border-b-2 lg:ml-20 border-b-white pb-1 text-white font-bold">
         Todo List
       </h2>
       <Button
