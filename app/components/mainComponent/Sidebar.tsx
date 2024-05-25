@@ -6,16 +6,25 @@ import avtar from "@/public/images/avatar .png";
 import { SiTodoist } from "react-icons/si";
 import { IoSettingsSharp } from "react-icons/io5";
 import { GrSchedulePlay } from "react-icons/gr";
+import { RxCross2 } from "react-icons/rx";
 import Button from "../widgets/Tasks";
 import Lists from "../widgets/Lists";
 interface SidebarType {
   isOpen: boolean;
+  setIsOpen: (pre: boolean) => void;
 }
-const Sidebar: React.FC<SidebarType> = ({ isOpen }) => {
+const Sidebar: React.FC<SidebarType> = ({ isOpen, setIsOpen }) => {
+  const handleCloseNav = () => {
+    setIsOpen(false);
+  };
   return (
     <div className="w-[95%] mr-4 md:mr-0 relative sm:w-[93%] h-[90%]  mt-10 lg:mr-10 rounded-2xl bg-white flex items-center  mx-auto">
       {isOpen ? (
         <div className="block md:hidden duration-700 bg-opacity-100  w-[70%] sm:w-[50%] absolute left-0 top-0 h-screen z-50  bg-white">
+          <div className=" flex justify-end mx-3 mt-3">
+            {" "}
+            <RxCross2 className="text-2xl" onClick={handleCloseNav} />
+          </div>{" "}
           <div className=" flex  gap-10 h-full w-full   mt-10  flex-col ">
             <div className=" border-b-purple-500 border-b-[3px] w-[90%] xl:w-[80%]   h-[20%] mx-auto flex justify-center gap-3 items-center">
               <Image

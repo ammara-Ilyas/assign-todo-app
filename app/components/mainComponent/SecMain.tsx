@@ -20,7 +20,7 @@ const SecMain = () => {
       <div className="w-[150px] h-[150px] rounded-full z-0 bg-yellow-400 absolute bottom-[40%] -right-16 "></div>
       <div className="w-[200px] h-[200px] z-40 bg-red-300 rounded-full absolute -bottom-14 -left-32 "></div>
       <div className="w-[100px] h-[100px] z-30 bg-cyan-400 rounded-full absolute top-0 left-56 lg:left-64 md:block hidden"></div>
-      <Sidebar isOpen={isOpen} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
