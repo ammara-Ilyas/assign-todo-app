@@ -41,7 +41,7 @@ const Search = () => {
       {" "}
       <div className="flex items-center h-full">
         <form
-          className=" h-[60%] w-1/2 mx-auto rounded-md gap-10 p-4 bg-white flex flex-col justify-center "
+          className=" h-[60%] w-[75%] lg:w-[60%] xl:w-1/2 mx-auto rounded-md gap-10 p-4 bg-white flex flex-col justify-center "
           onSubmit={handleSubmit}
         >
           <input
