@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarType> = ({ isOpen }) => {
   return (
     <div className="w-[95%] mr-4 md:mr-0 relative sm:w-[93%] h-[90%]  mt-10 lg:mr-10 rounded-2xl bg-white flex items-center  mx-auto">
       {isOpen ? (
-        <div className="block md:hidden duration-700 bg-opacity-95  w-[70%] absolute left-0 top-0 h-screen z-50  bg-white">
+        <div className="block md:hidden duration-700 bg-opacity-100  w-[70%] sm:w-[50%] absolute left-0 top-0 h-screen z-50  bg-white">
           <div className=" flex  gap-10 h-full w-full   mt-10  flex-col ">
             <div className=" border-b-purple-500 border-b-[3px] w-[90%] xl:w-[80%]   h-[20%] mx-auto flex justify-center gap-3 items-center">
               <Image
