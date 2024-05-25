@@ -34,7 +34,7 @@ const Search = () => {
   };
   return (
     <div
-      className={`h-full w-full  bg-black absolute top-0 right-0  bg-opacity-40 ${
+      className={`h-full w-full  bg-black absolute top-0 right-0 border-2 bg-opacity-40 ${
         isOpen ? "block" : "hidden"
       }`}
     >
@@ -46,7 +46,7 @@ const Search = () => {
         >
           <input
             type="text"
-            className="  outline-none p-2 placeholder:text-sm capitalize"
+            className=" border-2 outline-none p-2 placeholder:text-sm capitalize"
             placeholder={`${isEdit ? "Update Todo..." : "Write Todo..."}  `}
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
@@ -54,7 +54,7 @@ const Search = () => {
           <textarea
             name=""
             id=""
-            className=" outline-none p-2 placeholder:text-sm"
+            className="border-2 outline-none p-2 placeholder:text-sm"
             rows={5}
             placeholder={`${
               isEdit ? "Update description..." : "Write description...."
